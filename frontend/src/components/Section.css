@@ -1,0 +1,370 @@
+.section {
+  min-height: 220px;
+  margin-bottom: 30px;
+  font-family: 'Circular', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.section-title-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.see-all-link {
+  font-size: 12px;
+  font-weight: 700;
+  color: #b3b3b3;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.see-all-link:hover {
+  color: white;
+}
+
+/* Grid layout */
+.section-items.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 24px;
+}
+
+.section-item {
+  background: #181818;
+  border-radius: 6px;
+  padding: 16px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-item:hover {
+  background: #282828;
+  transform: translateY(-5px);
+}
+
+.section-item.active {
+  background: #2a2a2a;
+}
+
+.item-image-container {
+  position: relative;
+  margin-bottom: 16px;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.item-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.play-button {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 48px;
+  height: 48px;
+  background-color: #1db954;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0; /* Ẩn hoàn toàn ban đầu */
+  visibility: hidden; /* Thêm dòng này để đảm bảo ẩn hoàn toàn */
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
+  z-index: 2; /* Đảm bảo nút hiển thị trên cùng */
+}
+
+.section-item:hover .play-button,
+.section-item.active .play-button {
+  visibility: visible; /* Hiển thị khi hover hoặc active */
+  transform: translateY(0);
+}
+
+.play-button:hover {
+  transform: scale(1.05) translateY(0);
+  background-color: #1ed760;
+}
+
+.play-button svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}
+
+.item-info {
+  min-height: 62px;
+}
+
+.item-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 4px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item-subtitle {
+  font-size: 14px;
+  color: #a7a7a7;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4;
+}
+
+/* List layout */
+.section-items.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.section-items.list .section-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  border-radius: 4px;
+  background: transparent;
+}
+
+.section-items.list .section-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.section-items.list .item-image-container {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 0;
+}
+
+.section-items.list .item-info {
+  flex: 1;
+  min-height: auto;
+}
+
+.section-items.list .play-button {
+  position: static;
+  opacity: 0;
+  width: 40px;
+  height: 40px;
+  margin-left: auto;
+  transform: none;
+}
+
+.section-items.list .section-item:hover .play-button,
+.section-items.list .section-item.active .play-button {
+  opacity: 1;
+}
+
+/* Carousel layout */
+.section-items.carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  padding-bottom: 16px;
+  scrollbar-width: none; /* Firefox */
+  -webkit-overflow-scrolling: touch;
+}
+
+.section-items.carousel::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.section-items.carousel .section-item {
+  flex: 0 0 auto;
+  width: 220px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .section-items.grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}
+
+@media (max-width: 992px) {
+  .section-items.grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 20px;
+  }
+  
+  .section-items.grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 16px;
+  }
+  
+  .section-item {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-items.grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 12px;
+  }
+  
+  .item-title {
+    font-size: 14px;
+  }
+  
+  .item-subtitle {
+    font-size: 12px;
+  }
+  
+  .play-button {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .play-button svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Animation for play button */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-item:hover .play-button {
+  animation: fadeInUp 0.3s ease forwards;
+}
+
+/* Spotify-like shadow effect */
+.item-image-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(transparent 0%, rgba(0,0,0,0.5) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.section-item:hover .item-image-container::after {
+  opacity: 1;
+}
+
+/* Section navigation */
+.section-content-wrapper {
+  position: relative;
+}
+
+.section-nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.section:hover .section-nav-button {
+  opacity: 1;
+}
+
+.section-nav-button.left {
+  left: 10px;
+}
+
+.section-nav-button.right {
+  right: 10px;
+}
+
+.section-nav-button svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.section-nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Scrollable sections */
+.section-items {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.section-items::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.section-item {
+  flex: 0 0 auto;
+  width: 200px;
+  transition: transform 0.2s ease;
+}
+
+.section-item:hover {
+  transform: scale(1.05);
+}

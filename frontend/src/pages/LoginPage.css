@@ -1,0 +1,436 @@
+/* Modal và layout chính */
+.login-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.login-container {
+  position: relative;
+  background-color: #121212;
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.close-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+/* Phần nội dung đăng nhập */
+.login-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-container {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  align-items: center;     /* Căn giữa theo chiều dọc */
+}
+
+.spotify-logo {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  display: block;
+}
+
+.login-title {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  letter-spacing: -0.5px;
+}
+
+/* Form đăng nhập */
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group label {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 16px;
+  border-radius: 8px;
+  border: 2px solid #1DB954;
+  background-color: #181818;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(29,185,84,0.08);
+  margin-bottom: 8px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #1ed760;
+  background-color: #222;
+  box-shadow: 0 0 0 3px rgba(29,185,84,0.18);
+}
+
+.form-group input::placeholder {
+  color: #b3b3b3;
+  opacity: 0.7;
+}
+
+/* Remember me checkbox */
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 5px 0 10px;
+}
+
+.remember-me input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #1DB954;
+  cursor: pointer;
+}
+
+.remember-me label {
+  color: #b3b3b3;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Nút đăng nhập */
+.login-button {
+  background-color: #1DB954;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.login-button:hover {
+  background-color: #1ED760;
+  transform: translateY(-1px);
+}
+
+.login-button:active {
+  transform: translateY(0);
+}
+
+.login-button:disabled {
+  background-color: #535353;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Thông báo lỗi */
+.error-message {
+  color: #ff4e45;
+  background-color: rgba(255, 78, 69, 0.1);
+  padding: 14px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid rgba(255, 78, 69, 0.3);
+}
+
+/* Link quên mật khẩu */
+.forgot-password {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.forgot-password a {
+  color: #b3b3b3;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.forgot-password a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Link đăng ký */
+.signup-link {
+  text-align: center;
+  color: #b3b3b3;
+  font-size: 15px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #282828;
+}
+
+.signup-link a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.signup-link a:hover {
+  color: #1DB954;
+  text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 30px 20px;
+    border-radius: 0;
+    max-width: 100%;
+    height: 100%;
+    justify-content: flex-start;
+    padding-top: 60px;
+  }
+  
+  .spotify-logo {
+    width: 160px;
+  }
+  
+  .login-title {
+    font-size: 24px;
+  }
+}
+
+/* Các style cơ bản giữ nguyên */
+.login-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.login-container {
+  position: relative;
+  background-color: #121212;
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Các style mới cho các view khác nhau */
+.modal-title {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 4px;
+  border: 1px solid #535353;
+  background-color: #282828;
+  color: #fff;
+  font-size: 15px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #1DB954;
+}
+
+.instruction {
+  color: #b3b3b3;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #b3b3b3;
+  font-size: 14px;
+}
+
+.primary-button {
+  background-color: #1DB954;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.2s;
+}
+
+.primary-button:hover {
+  background-color: #1ED760;
+}
+
+.primary-button:disabled {
+  background-color: #535353;
+  cursor: not-allowed;
+}
+
+.secondary-button {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #535353;
+  border-radius: 30px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s;
+}
+
+.secondary-button:hover {
+  border-color: #fff;
+}
+
+.text-button {
+  background: none;
+  border: none;
+  color: #b3b3b3;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.text-button:hover {
+  color: #fff;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  color: #b3b3b3;
+  margin: 20px 0;
+  font-size: 14px;
+  text-align: center;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #535353;
+}
+
+.divider::before {
+  margin-right: 10px;
+}
+
+.divider::after {
+  margin-left: 10px;
+}
+
+.resend-otp {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 15px;
+  color: #b3b3b3;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 30px 20px;
+    border-radius: 0;
+    max-width: 100%;
+    height: 100%;
+    justify-content: flex-start;
+    padding-top: 60px;
+  }
+  
+  .modal-title {
+    font-size: 20px;
+  }
+}

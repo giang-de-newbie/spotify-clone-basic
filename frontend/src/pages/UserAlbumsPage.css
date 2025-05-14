@@ -1,0 +1,331 @@
+.user-albums-page {
+  padding: 24px 32px;
+  background: linear-gradient(#1a1a1a, #121212);
+  min-height: 100vh;
+  color: white;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.page-header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.create-album-btn {
+  background-color: transparent;
+  color: white;
+  border: 1px solid #727272;
+  border-radius: 20px;
+  padding: 6px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 18px;
+  display: inline-block;
+  align-self: flex-start;
+  max-width: 200px;
+  width: auto;
+  min-width: unset;
+  text-align: center;
+}
+
+.create-album-btn:hover {
+  border-color: white;
+  transform: scale(1.02);
+}
+
+.create-album-form {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+  align-items: center;
+}
+
+.album-name-input {
+  flex: 1;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 12px 16px;
+  font-size: 14px;
+}
+
+.album-name-input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.submit-album-btn {
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-block;
+  align-self: flex-start;
+  max-width: 200px;
+  width: auto;
+  min-width: unset;
+  text-align: center;
+  margin-left: 0;
+}
+
+.submit-album-btn:hover {
+  background-color: #e6e6e6;
+  transform: scale(1.03);
+}
+
+.albums-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px;
+  margin-top: 16px;
+  justify-items: center;
+  align-items: stretch;
+}
+
+.album-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 180px;
+  max-width: 220px;
+  min-height: 280px;
+  padding: 20px 16px 16px 16px;
+  margin: 0 auto;
+  background: #181818;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+  position: relative;
+  overflow: visible;
+  transition: all 0.3s;
+}
+
+.album-card:hover {
+  background: #282828;
+  transform: translateY(-5px);
+}
+
+.album-cover {
+  width: 100px;
+  height: 100px;
+  aspect-ratio: 1/1;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.album-card:hover .album-cover {
+  transform: scale(0.95);
+}
+
+.album-cover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%);
+  z-index: 1;
+}
+
+.album-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.album-card:hover .album-cover img {
+  transform: scale(1.05);
+}
+
+.default-cover {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #535353, #282828);
+}
+
+.default-cover span {
+  font-size: 48px;
+  font-weight: 700;
+  color: #b3b3b3;
+  text-transform: uppercase;
+}
+
+.album-info {
+  text-align: center;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.album-title {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.album-song-count {
+  font-size: 13px;
+  color: #b3b3b3;
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Play button effect */
+.album-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(transparent 0%, #181818 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.album-card:hover::after {
+  opacity: 1;
+}
+
+.play-icon {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  background: #1db954;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.album-card:hover .play-icon {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.play-icon:hover {
+  transform: scale(1.05) translateY(0);
+  background: #1ed760;
+}
+
+.delete-album-btn {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  z-index: 3;
+  background: rgba(255,0,0,0.08);
+  border: none;
+  border-radius: 50%;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.delete-album-btn:hover {
+  background: rgba(255,0,0,0.18);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .album-card {
+    padding: 12px;
+  }
+  
+  .album-cover {
+    margin-bottom: 12px;
+  }
+  
+  .album-title {
+    font-size: 14px;
+  }
+  
+  .album-song-count {
+    font-size: 12px;
+    letter-spacing: 0;
+  }
+  
+  .play-icon {
+    width: 40px;
+    height: 40px;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+@media (max-width: 900px) {
+  .albums-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+  }
+  .album-card {
+    min-height: 220px;
+  }
+}
+
+.album-section {
+  margin-top: 32px;
+}
+
+.album-section-header {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .user-albums-page {
+    padding: 16px;
+  }
+  
+  .albums-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
+  }
+  
+  .page-header h1 {
+    font-size: 24px;
+  }
+}

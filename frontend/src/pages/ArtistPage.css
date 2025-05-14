@@ -1,0 +1,496 @@
+.artist-page {
+  padding-bottom: 80px;
+  color: white;
+}
+
+/* Artist Header */
+/* Artist Page Styles */
+.artist-page {
+  background: linear-gradient(#1a1a1a, #121212);
+  min-height: 100vh;
+  color: white;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  padding-bottom: 80px;
+}
+
+/* Header Section */
+.artist-header {
+  height: 320px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 32px 24px;
+  position: relative;
+}
+
+.artist-header-content {
+  position: relative;
+  z-index: 2;
+}
+
+.artist-info {
+  margin-bottom: 24px;
+}
+
+.verified-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.verified-icon {
+  width: 16px;
+  height: 16px;
+  fill: #1db954;
+  margin-right: 6px;
+}
+
+.artist-name {
+  font-size: 72px;
+  font-weight: 900;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.artist-followers {
+  font-size: 14px;
+  color: #b3b3b3;
+  margin-top: 12px;
+}
+
+/* Action Buttons */
+.artist-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 32px;
+}
+
+.play-button {
+  background: #1db954;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.play-button:hover {
+  transform: scale(1.05);
+}
+
+.play-button svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}
+
+.follow-button {
+  background: transparent;
+  border: 1px solid #727272;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.follow-button:hover {
+  border-color: white;
+}
+
+.more-button {
+  background: transparent;
+  border: none;
+  color: white;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.more-button:hover {
+  opacity: 1;
+}
+
+.more-button svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* Popular songs Section */
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 32px 16px;
+}
+
+.songs-list {
+  padding: 0 32px;
+}
+
+.song-row {
+  display: grid;
+  grid-template-columns: 40px 1fr 1fr 80px 40px;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.song-row:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.song-row.active {
+  background-color: rgba(30, 215, 96, 0.1);
+}
+
+.song-number {
+  font-size: 16px;
+  color: #b3b3b3;
+  text-align: center;
+  position: relative;
+}
+
+.playing-animation {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 20px;
+  gap: 2px;
+}
+
+.playing-animation .bar {
+  width: 3px;
+  background: #1db954;
+  border-radius: 2px;
+  animation: bounce 1.2s infinite ease-in-out;
+}
+
+.playing-animation .bar:nth-child(1) {
+  height: 60%;
+  animation-delay: 0s;
+}
+
+.playing-animation .bar:nth-child(2) {
+  height: 100%;
+  animation-delay: 0.2s;
+}
+
+.playing-animation .bar:nth-child(3) {
+  height: 40%;
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: scaleY(0.8); }
+  50% { transform: scaleY(1.2); }
+}
+
+.song-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.song-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.song-artists {
+  font-size: 14px;
+  color: #b3b3b3;
+}
+
+.artist-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.artist-link:hover {
+  text-decoration: underline;
+}
+
+.song-album {
+  font-size: 14px;
+  color: #b3b3b3;
+}
+
+.song-album a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.song-album a:hover {
+  text-decoration: underline;
+}
+
+.song-duration {
+  font-size: 14px;
+  color: #b3b3b3;
+  text-align: right;
+}
+
+.song-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.favorite-btn {
+  background: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.song-row:hover .favorite-btn {
+  opacity: 1;
+}
+
+.favorite-btn.active {
+  opacity: 1;
+}
+
+.favorite-btn.active .heart-icon {
+  fill: #1db954;
+}
+
+/* Add to Album Button */
+.add-to-album-btn {
+  background: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.song-row:hover .add-to-album-btn {
+  opacity: 1;
+}
+
+.add-to-album-btn:hover {
+  color: #1db954;
+}
+
+/* Album Modal */
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.album-modal {
+  background: #282828;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.album-list {
+  padding: 8px 0;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.album-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.album-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.album-cover-small {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  background: #333;
+  margin-right: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.album-cover-small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.album-info-small {
+  flex: 1;
+  min-width: 0;
+}
+
+.album-name-small {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.album-songs-small {
+  font-size: 14px;
+  color: #b3b3b3;
+}
+
+.create-album-btn {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.create-album-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .artist-header {
+    height: 240px;
+    padding: 0 16px 16px;
+  }
+  
+  .artist-name {
+    font-size: 48px;
+  }
+  
+  .artist-actions {
+    padding: 16px;
+    gap: 16px;
+  }
+  
+  .play-button {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .section-title, .songs-list {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .song-row {
+    grid-template-columns: 30px 1fr 30px;
+    grid-template-areas: 
+      "number info actions"
+      "duration duration duration";
+    padding: 8px;
+  }
+  
+  .song-number {
+    grid-area: number;
+  }
+  
+  .song-info {
+    grid-area: info;
+  }
+  
+  .song-album {
+    display: none;
+  }
+  
+  .song-duration {
+    grid-area: duration;
+    text-align: right;
+    padding-right: 8px;
+    font-size: 12px;
+  }
+  
+  .song-actions {
+    grid-area: actions;
+  }
+  
+  .favorite-btn {
+    opacity: 1;
+  }
+}
+
